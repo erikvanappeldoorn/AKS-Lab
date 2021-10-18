@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+   name: service-nl-deployment
+   labels:
+      app: service-nl
+
+spec:
+   replicas: 1
+   selector:
+      matchLabels:
+         app: service-nl
+   template:
+      metadata:
+         labels:
+            app: service-nl
+      spec:
+         containers:
+         - name: service-nl
+           image: service-nl:v1
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: service-nl-service
+spec:
+  selector:
+    app: service-nl
+  ports:
+  - port: 80
+  type: ClusterIP
