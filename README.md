@@ -32,8 +32,24 @@ Create a .NET 5 WebApi project called service-no, make sure:
 - Test your service in the browser: `http://localhost:5001/greeting`
 - When ready stop and remove the docker container
 
-## Run your services is a local Kubernetes cluster
+## Run your services in a local Kubernetes cluster
 
+Create a K8s deployment file for each service, use the names:
+-  service-nl-deployment.yaml and
+-  service-no-deployment.yaml
 
+each deployment file should include:
 
+- A spec, with image set to the local image (e.g. use service-nl:v1, and service-no:v1 )
+- Number of replicas: 1
+- A Service with port 80 and type ClusterIP
 
+To Test your local service deployment by performing e.g.:
+
+`kubectl apply -f service-nl-local-deployment.yaml`
+
+and
+
+`kubectl port-forward deploy/service-nl-deployment 5000:80`
+
+and browse to `http://localhost:5000/greeting`
