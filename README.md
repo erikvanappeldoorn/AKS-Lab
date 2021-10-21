@@ -32,7 +32,7 @@ Create a .NET 5 WebApi project called service-no, make sure:
 - Test your service in the browser: `http://localhost:5001/greeting`
 - When ready stop and remove the docker container
 
-## Run your services in a local Kubernetes cluster
+## 2. Run your services in a local Kubernetes cluster
 
 Create a K8s deployment file for each service, use the names:
 -  service-nl-deployment.yaml and
@@ -53,3 +53,12 @@ and
 `kubectl port-forward deploy/service-nl-deployment 5000:80`
 
 and browse to `http://localhost:5000/greeting`
+
+## 3. Azure Container Registry
+
+- Create an Azure Container Registry (in the portal). Please note the login server name.
+- From the Azure CLI terminal log in to Azure: `az login`
+- From the Azure CLI termin log in to ACR: e.g. `az acr login --name [edit acr name].azurecr.io` 
+- Retag you service images to `[edit acr name].azurecr.io/service-nl:v1` and  `[edit acr name].azurecr.io/service-no:v1`
+- Use `docker push` to upload both service images to your Azure Container Registry. 
+- Verify in the Azure portal you can find two repositories with the images.
