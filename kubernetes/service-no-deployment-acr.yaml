@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+   name: service-no-deployment
+   labels:
+      app: service-no
+
+spec:
+   replicas: 1
+   selector:
+      matchLabels:
+         app: service-no
+   template:
+      metadata:
+         labels:
+            app: service-no
+      spec:
+         containers:
+         - name: service-no
+           image: akserikito.azurecr.io/service-no:v1
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: service-no-service
+spec:
+  selector:
+    app: service-no
+  ports:
+  - port: 80
+  type: LoadBalancer
