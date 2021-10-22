@@ -96,6 +96,12 @@ e.g. `az aks get-credentials -g aks-lab -n aks-lab`
 
 - To test the web api on the AKS cluster open a browser and use the URL: https://[edit external ip address]/greeting. If the deployment was succeful you should see the text: "Hei, alle fra ITUMX !"
 
+## 6. Additional challenge
+
+To deploy both services on the AKS cluster we need a reverse-proxy like nginx or traefik.
+
+Deploy both web api services to the AKS cluster and use a reverse-proxy to do the correct routing with Ingresses.
+
 
 
 
