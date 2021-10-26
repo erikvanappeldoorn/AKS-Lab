@@ -13,7 +13,7 @@ Create a .NET 5 WebApi project called service-nl, make sure:
 
 - Test your project locally
 - Create the docker image with the name service-nl
-- Run the container: `docker run -d -p:5000:80 service-no` 
+- Run the container: `docker run -d -p:5000:80 service-nl` 
 - Test your service in the browser: `http://localhost:5000/greeting`
 - When ready stop and remove the docker container
 
@@ -27,7 +27,7 @@ Create a .NET 5 WebApi project called service-no, make sure:
 - The WebAPi project should only have one controller (GreetController) with one GET action (Greet) returning the string  ""Hei, alle fra ITUMX !"
 
 - Test your project locally
-- Create the docker image with the name service-nl
+- Create the docker image with the name service-no
 - Run the container: `docker run -d -p:5001:80 service-no` 
 - Test your service in the browser: `http://localhost:5001/greeting`
 - When ready stop and remove the docker container
